@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<template id="__bundler_thumbnail" data-bg-color="#ffffff">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#ffffff"/>
+    <text x="600" y="120" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="64" fill="#000">atoman</text>
+    <rect x="120" y="220" width="240" height="320" fill="#ededed"/>
+    <rect x="380" y="220" width="240" height="200" fill="#ededed"/>
+    <rect x="640" y="220" width="240" height="260" fill="#ededed"/>
+    <rect x="900" y="220" width="180" height="360" fill="#ededed"/>
+    <rect x="120" y="560" width="240" height="180" fill="#ededed"/>
+    <rect x="380" y="440" width="240" height="300" fill="#ededed"/>
+    <rect x="640" y="500" width="240" height="200" fill="#ededed"/>
+    <rect x="900" y="600" width="180" height="140" fill="#ededed"/>
+  </svg>
+</template>
+<style>
+  *{box-sizing:border-box}
+  html{scrollbar-gutter:stable both-edges !important;overflow-y:scroll !important;scrollbar-width:thin;scrollbar-color:transparent transparent}
+  html::-webkit-scrollbar{width:8px}
+  html::-webkit-scrollbar-track{background:transparent}
+  html::-webkit-scrollbar-thumb{background:transparent}
+  html:hover::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.2)}
+  html,body{margin:0}
+  body{background:#fff;color:#000;font-family:'Pretendard Variable','Pretendard',-apple-system,system-ui,sans-serif;font-weight:500;-webkit-font-smoothing:antialiased}
+  button{font-family:inherit;color:inherit}
+  a{color:#000;text-decoration:none}
+  a:hover{text-decoration:underline}
+  img{display:block;max-width:100%}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#e0e0e0;border-radius:6px}
+  .design-card .ext-hint{opacity:0;transition:opacity .18s ease}
+  .design-card:hover .ext-hint{opacity:1}
+  @media (hover:none){.design-card .ext-hint{opacity:1}}
+</style>
+</helmet>
+
+<!-- ===== HEADER (sticky, fixed height, opaque) ===== -->
+<header style="position:sticky;top:0;z-index:30;background:#fff;border-bottom:{{ headerBorder }};padding:0 {{ sidePad }}px">
+  <div style="display:flex;flex-direction:column;align-items:center;padding:16px 0 12px">
+    <div style="position:relative;width:100%;display:flex;align-items:center;justify-content:center">
+      <button onClick="{{ goMain }}" aria-label="atoman home" style="background:none;border:none;cursor:pointer;padding:0;line-height:0;text-decoration:none">
+        <svg height="22" viewBox="0 0 1260 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:auto;height:22px">
+          <path d="M168.679 73.3712C161.619 63.8296 151.559 56.4083 138.539 51.1475C125.499 45.8666 110.359 43.2461 93.0994 43.2461C75.8395 43.2461 60.0796 46.0866 47.5797 51.7676C35.0798 57.4485 25.4198 65.1298 18.6599 74.7915C11.8799 84.4531 8.07994 95.2748 7.27995 107.217H67.9195C68.8395 101.236 71.3595 96.7352 75.4795 93.6947C79.5994 90.6542 85.1194 89.1338 92.0794 89.1338C96.3593 89.1338 100.159 89.774 103.459 91.0742C106.759 92.3544 109.259 94.2747 110.939 96.7751C112.619 99.2956 113.459 102.376 113.459 105.997L113.619 121.199C111.059 121.279 108.479 121.379 105.979 121.459C100.299 121.699 94.2593 121.959 87.8194 122.259C81.3994 122.559 75.3395 122.879 69.6595 123.22C48.5797 124.4 31.6998 129.841 19.0199 139.562C6.33996 149.284 0 164.046 0 183.85C0 196.152 2.63998 206.494 7.89995 214.855C13.1599 223.236 20.3799 229.437 29.5398 233.478C38.6797 237.519 49.3997 239.539 61.6796 239.539C73.9595 239.539 85.3394 237.139 94.4193 232.338C103.519 227.537 110.839 220.036 116.399 209.854H117.779V236.559H179.459V106.177C179.339 93.8747 175.759 82.9528 168.679 73.4112V73.3712ZM109.879 183.99C107.039 188.331 103.159 191.631 98.2393 193.912C93.3194 196.192 88.1394 197.272 82.6994 197.152C78.6395 197.272 75.0595 196.632 71.9195 195.212C68.7995 193.812 66.3595 191.851 64.6196 189.331C62.8796 186.81 62.0196 183.73 62.0196 180.109C62.0196 174.948 63.7596 170.568 67.2395 166.927C70.7195 163.286 75.3995 161.126 81.3194 160.426C88.9594 159.486 98.5193 158.906 109.979 158.666C111.479 158.546 112.779 158.466 113.879 158.406C113.939 158.406 113.979 158.406 114.019 158.406L114.139 168.867C114.139 174.608 112.719 179.649 109.879 183.97V183.99Z" fill="#111111"></path>
+          <path d="M306.098 187.852C303.438 188.092 300.718 188.232 297.938 188.292C295.158 188.352 293.078 188.312 291.678 188.192C288.558 188.192 285.998 187.732 284.038 186.791C282.058 185.851 280.598 184.471 279.618 182.671C278.638 180.85 278.138 178.43 278.138 175.37V93.8358H310.798V45.6878H278.138V0H212.458V45.6878H188.318V93.8358H212.458V182.051C212.338 195.173 214.918 205.955 220.198 214.376C225.458 222.818 233.278 229.079 243.658 233.179C254.018 237.28 266.918 239.32 282.318 239.32C294.018 239.32 304.378 238.5 313.418 236.86V187.312L306.118 187.832L306.098 187.852Z" fill="#111111"></path>
+          <path d="M471.323 55.5092C456.603 47.3078 439.303 43.207 419.383 43.207C399.463 43.207 382.023 47.3078 367.443 55.5092C352.843 63.7105 341.664 75.2125 333.904 90.035C326.144 104.857 322.264 122.04 322.264 141.604C322.264 161.167 326.144 178.37 333.904 193.172C341.664 207.995 352.843 219.497 367.443 227.698C382.043 235.9 399.343 240 419.383 240C439.423 240 456.623 235.9 471.323 227.698C486.023 219.497 497.262 207.995 505.022 193.172C512.782 178.35 516.662 161.167 516.662 141.604C516.662 122.04 512.782 104.857 505.022 90.035C497.262 75.2125 486.023 63.7105 471.323 55.5092ZM445.963 167.268C443.643 174.649 440.263 180.41 435.803 184.571C431.343 188.732 426.103 190.812 420.083 190.812C413.603 190.812 408.043 188.732 403.403 184.571C398.763 180.41 395.263 174.649 392.883 167.268C390.503 159.887 389.323 151.105 389.323 140.904C389.323 130.702 390.503 122.08 392.883 114.639C395.263 107.198 398.763 101.497 403.403 97.4962C408.043 93.5155 413.603 91.5152 420.083 91.5152C426.103 91.5152 431.343 93.5155 435.803 97.4962C440.263 101.477 443.643 107.218 445.963 114.719C448.283 122.22 449.443 130.942 449.443 140.904C449.443 150.865 448.283 159.887 445.963 167.268Z" fill="#111111"></path>
+          <path d="M785.802 51.1284C776.522 45.8475 765.942 43.2271 754.002 43.2271C744.742 43.2271 736.202 44.7874 728.382 47.8879C720.562 50.9884 713.922 55.4691 708.482 61.3301C703.042 67.1911 699.222 73.9323 697.022 81.5336H695.282C693.782 73.8123 690.642 67.0311 685.902 61.2301C681.142 55.4291 675.102 50.9884 667.742 47.8679C660.383 44.7673 652.363 43.207 643.683 43.207C630.583 43.207 619.323 46.6077 609.883 53.4088C600.443 60.21 593.703 69.5715 589.643 81.5135H587.903V45.6675H525.523V236.5H591.203V124.741C591.203 119 592.183 114.019 594.163 109.798C596.123 105.578 598.883 102.357 602.423 100.137C605.963 97.9163 610.103 96.7961 614.843 96.7961C619.583 96.7961 623.943 97.8763 627.523 100.057C631.103 102.217 633.863 105.378 635.783 109.538C637.703 113.699 638.643 118.54 638.643 124.041V236.5H701.542V124.381C701.662 118.76 702.662 113.839 704.582 109.618C706.502 105.398 709.222 102.217 712.742 100.037C716.282 97.8763 720.482 96.7761 725.342 96.7761C732.642 96.7761 738.422 99.2166 742.722 104.077C747.002 108.938 749.142 115.639 749.142 124.201V236.48H814.981V107.858C814.981 94.9758 812.441 83.6139 807.342 73.7722C802.242 63.9306 795.062 56.3693 785.802 51.1084V51.1284Z" fill="#111111"></path>
+          <path d="M992.54 73.3712C985.48 63.8296 975.42 56.4083 962.4 51.1475C949.36 45.8666 934.221 43.2461 916.961 43.2461C911.541 43.2461 906.381 43.5462 901.441 44.0663C890.161 45.2665 880.141 47.8069 871.441 51.7676C858.941 57.4485 849.301 65.1298 842.521 74.7915C835.741 84.4531 831.961 95.2748 831.141 107.217H891.781C892.701 101.236 895.221 96.7352 899.341 93.6947C900.001 93.2146 900.741 92.8345 901.461 92.4344C905.301 90.2741 910.081 89.1338 915.941 89.1338C920.221 89.1338 924.021 89.774 927.321 91.0742C930.621 92.3544 933.121 94.2747 934.801 96.7751C936.481 99.2956 937.321 102.376 937.321 105.997L937.481 121.199C934.921 121.279 932.341 121.379 929.841 121.459C924.161 121.699 918.121 121.959 911.681 122.259C908.161 122.419 904.761 122.599 901.461 122.76C898.741 122.9 896.081 123.06 893.521 123.22C872.441 124.4 855.561 129.841 842.881 139.562C830.201 149.284 823.861 164.046 823.861 183.85C823.861 196.152 826.501 206.494 831.761 214.855C837.041 223.236 844.241 229.437 853.401 233.478C862.541 237.519 873.261 239.539 885.541 239.539C897.821 239.539 909.201 237.139 918.281 232.338C919.241 231.838 920.161 231.278 921.081 230.718C928.881 225.917 935.281 218.976 940.261 209.854H941.64V236.559H1003.32V106.177C1003.2 93.8747 999.62 82.9528 992.54 73.4112V73.3712ZM933.741 183.99C930.901 188.331 927.021 191.631 922.101 193.912C917.181 196.192 912.001 197.272 906.541 197.152C904.741 197.212 903.061 197.092 901.441 196.832C899.401 196.532 897.501 195.992 895.761 195.212C892.641 193.812 890.201 191.851 888.461 189.331C886.721 186.81 885.861 183.73 885.861 180.109C885.861 174.948 887.601 170.568 891.081 166.927C893.801 164.087 897.261 162.186 901.461 161.126C902.641 160.826 903.861 160.566 905.161 160.426C912.801 159.486 922.361 158.906 933.821 158.666C935.321 158.546 936.621 158.466 937.741 158.406C937.801 158.406 937.841 158.406 937.881 158.406L938.001 168.867C938.001 174.608 936.581 179.649 933.741 183.97V183.99Z" fill="#111111"></path>
+          <path d="M1191.82 77.5728C1186.38 66.731 1178.68 58.3096 1168.72 52.2686C1158.76 46.2276 1147.24 43.207 1134.14 43.207C1123.18 43.207 1113.34 45.3874 1104.58 49.6881C1102.32 50.7883 1100.12 52.0086 1098 53.3888C1087.68 60.1899 1080.46 69.5515 1076.28 81.4935H1074.54V45.6475H1012.16V236.48H1077.84V128.581C1077.84 122.14 1079 116.539 1081.32 111.799C1083.64 107.058 1086.96 103.417 1091.32 100.897C1095.2 98.6564 1099.64 97.4562 1104.58 97.2161C1105.18 97.1961 1105.74 97.1161 1106.34 97.1161C1112.24 97.1161 1117.32 98.3764 1121.54 100.897C1125.76 103.417 1128.96 106.998 1131.1 111.619C1133.24 116.239 1134.32 121.78 1134.32 128.221V236.46H1200V114.499C1200 100.677 1197.28 88.3547 1191.84 77.5129L1191.82 77.5728Z" fill="#111111"></path>
+          <path d="M1236 188C1222.76 188 1212 198.76 1212 212C1212 225.24 1222.76 236 1236 236C1249.24 236 1260 225.24 1260 212C1260 198.76 1249.24 188 1236 188ZM1236 231.9C1225.02 231.9 1216.1 222.98 1216.1 212C1216.1 201.02 1225.04 192.1 1236 192.1C1246.96 192.1 1255.9 201.02 1255.9 212C1255.9 222.98 1246.98 231.9 1236 231.9Z" fill="#111111"></path>
+          <path d="M1240.26 214.063C1240.46 213.983 1240.7 213.943 1240.9 213.843C1242.04 213.283 1242.9 212.483 1243.46 211.483C1244.02 210.483 1244.3 209.283 1244.3 207.923C1244.3 206.563 1244.02 205.343 1243.44 204.303C1242.88 203.263 1242.02 202.463 1240.88 201.883C1239.74 201.303 1238.34 201.023 1236.68 201.023H1228.88V222.943H1232.2V214.683H1236.66C1236.66 214.683 1236.8 214.683 1236.86 214.683L1241.3 222.963H1245.1L1240.24 214.063H1240.26ZM1236.36 211.803H1232.22V203.903H1236.36C1237.4 203.903 1238.28 204.063 1238.98 204.363C1239.68 204.683 1240.18 205.143 1240.48 205.743C1240.8 206.343 1240.98 207.083 1240.96 207.923C1240.96 208.763 1240.78 209.463 1240.48 210.043C1240.18 210.623 1239.68 211.043 1238.98 211.343C1238.3 211.643 1237.42 211.803 1236.36 211.803Z" fill="#111111"></path>
+        </svg>
+      </button>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toggleMenu }}" aria-label="menu" style="position:absolute;right:0;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:6px;line-height:0">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+        </button>
+      </sc-if>
+    </div>
+    <sc-if value="{{ showNavRow }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:{{ navGap }}px;margin-top:12px">
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+          <button onClick="{{ n.onClick }}" style="background:none;border:none;cursor:pointer;padding:2px 1px 4px;font-size:{{ navFont }}px;font-weight:{{ n.weight }};color:#000;border-bottom:{{ n.border }}">{{ n.label }}</button>
+        </sc-for>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav style="display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:12px;width:100%">
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+          <button onClick="{{ n.onClick }}" style="background:none;border:none;cursor:pointer;padding:10px;font-size:18px;font-weight:{{ n.weight }};color:#000;width:100%">{{ n.label }}</button>
+        </sc-for>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ showSubtabs }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:{{ subGap }}px;margin-top:16px">
+        <sc-for list="{{ subtabItems }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.onClick }}" style="background:none;border:none;cursor:pointer;padding:2px 1px 4px;font-size:{{ subFont }}px;font-weight:{{ t.weight }};color:#000;border-bottom:{{ t.border }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </sc-if>
+  </div>
+</header>
+
+<!-- ===== BODY ===== -->
+<main style="padding:24px {{ sidePad }}px 0;min-height:60vh">
+
+  <!-- MAIN / PHOTOGRAPHY : masonry -->
+  <sc-if value="{{ showGallery }}" hint-placeholder-val="{{ true }}">
+    <div>
+      <div style="display:flex;gap:{{ gutter }}px;align-items:flex-start;justify-content:center">
+        <sc-for list="{{ galleryCols }}" as="col" hint-placeholder-count="4">
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:{{ gutter }}px">
+            <sc-for list="{{ col.cards }}" as="card" hint-placeholder-count="4">
+              <div onClick="{{ card.onClick }}" class="{{ card.cls }}" style="position:relative;width:100%;aspect-ratio:{{ card.ratio }};background:#ededed;overflow:hidden;cursor:pointer">
+                <sc-if value="{{ card.isDesign }}" hint-placeholder-val="{{ false }}">
+                  <div class="ext-hint" style="position:absolute;top:9px;right:9px;pointer-events:none;line-height:0">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.5))"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+      <div ref="{{ setSentinel }}" style="height:1px"></div>
+    </div>
+  </sc-if>
+
+  <!-- DESIGN : project articles -->
+  <sc-if value="{{ isDesign }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:{{ projGap }}px;padding-top:8px">
+      <sc-for list="{{ designProjects }}" as="p" hint-placeholder-count="2">
+        <article style="display:flex;flex-direction:column;gap:28px">
+          <div style="display:grid;grid-template-columns:{{ gCols }};align-items:end;gap:16px 0">
+            <h2 style="grid-column:{{ titleCol }};margin:0;font-weight:700;font-size:{{ titleSize }}px;line-height:1.12;letter-spacing:-.02em">{{ p.title }}</h2>
+            <div style="grid-column:{{ dateCol }};font-size:14px;font-weight:500;padding-bottom:6px">{{ p.date }}</div>
+            <div style="grid-column:{{ designerCol }};font-size:14px;font-weight:600;padding-bottom:6px">{{ p.designer }}</div>
+          </div>
+          <div style="width:100%;aspect-ratio:3/1;background:#ededed"></div>
+          <div style="display:grid;grid-template-columns:{{ gCols }};gap:24px 0;padding-top:4px">
+            <div style="grid-column:{{ credCol }}">
+              <sc-for list="{{ p.credits }}" as="c" hint-placeholder-count="3">
+                <div style="font-weight:500;font-size:14px;line-height:2">{{ c }}</div>
+              </sc-for>
+            </div>
+            <div style="grid-column:{{ longCol }}">
+              <p style="margin:0 0 26px;font-weight:600;font-size:16px;line-height:1.8">{{ p.textKo }}</p>
+              <p style="margin:0;font-weight:500;font-size:13px;line-height:1.8">{{ p.textEn }}</p>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <!-- CONTACT -->
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+    <div style="padding-top:8px;display:flex;flex-direction:column;gap:44px">
+      <div style="width:100%;aspect-ratio:3/1;background:#ededed"></div>
+      <div style="display:grid;grid-template-columns:{{ gCols }};align-items:start;gap:32px 0">
+        <div style="grid-column:{{ titleCol }};font-weight:700;font-size:{{ titleSize }}px;line-height:1.08;letter-spacing:-.02em">atoman</div>
+        <div style="grid-column:{{ longCol }};display:flex;flex-direction:column;gap:32px;padding-right:{{ contactPadRight }}px">
+          <div style="display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:16px;line-height:1.7">
+            <span>AI Creatives</span>
+            <span>Graphics</span>
+            <span>Brand building</span>
+            <span>Photography</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:15px;line-height:1.7">
+            <a href="mailto:97yjbusiness@gmail.com">e-mail</a>
+            <a href="https://www.behance.net" target="_blank">Behance</a>
+            <a href="https://www.notion.so" target="_blank">Notion</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</main>
+
+<!-- ===== FOOTER (every page) ===== -->
+<footer style="background:#fff;border-top:1px solid #000;margin-top:80px;padding:40px {{ sidePad }}px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+  <div style="display:flex;align-items:center;gap:14px;font-weight:600;font-size:14px">
+    <a href="https://www.behance.net" target="_blank">Behance</a>
+    <span>·</span>
+    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+    <span>·</span>
+    <a href="https://www.notion.so" target="_blank">Notion</a>
+  </div>
+  <a href="mailto:97yjbusiness@gmail.com" style="font-weight:500;font-size:14px">97yjbusiness@gmail.com</a>
+  <p style="margin:0;font-weight:500;font-size:13px">© 2026 atoman</p>
+</footer>
+
+<!-- ===== LIGHTBOX ===== -->
+<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ overlayClick }}" style="position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center">
+    <button onClick="{{ closeLightbox }}" aria-label="close" style="position:absolute;top:18px;right:18px;background:none;border:none;cursor:pointer;padding:8px;line-height:0;z-index:2">
+      <svg width="26" height="26" viewBox="0 0 24 24" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+    </button>
+    <button onClick="{{ lbPrev }}" aria-label="prev" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:12px;line-height:0;z-index:2">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+    </button>
+    <div style="width:{{ lbWidth }};aspect-ratio:{{ lbRatio }};background:#e8e8e8"></div>
+    <button onClick="{{ lbNext }}" aria-label="next" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:12px;line-height:0;z-index:2">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+    </button>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+// ===== DATA (edit these arrays; render iterates them) =====
+// Placeholder gallery generated as {src, type, cat, w, h(, href)} — swap `src` for real images later.
+// The renderer computes aspect-ratio from each item's ACTUAL w/h, so real photos of any
+// ratio (3:2, 2:3, square, panorama) will render correctly with no cropping. No hard-coded
+// ratios in the renderer. Placeholders use a 3:2 camera: portrait 1000x1500, landscape 1500x1000.
+const PORTRAIT = [1000, 1500];   // 2:3
+const LANDSCAPE = [1500, 1000];  // 3:2
+// portrait share per category (out of 20)
+const PORTRAIT_PCT = { model: 0.7, snap: 0.5, street: 0.5, landscape: 0.2 };
+// Evenly spread `pCount` portraits across `total` slots (Bresenham) so orientation
+// interleaves instead of clumping — keeps the exact ratio, minimizes same-orientation runs.
+function distributeOrient(total, pCount) {
+  const out = []; let acc = 0;
+  for (let i = 0; i < total; i++) {
+    acc += pCount;
+    if (acc >= total) { acc -= total; out.push(true); } else out.push(false);
+  }
+  return out; // true = portrait
+}
+function buildGallery() {
+  const total = 40;
+  // per-category items, orientation evenly interleaved within the category
+  const byCat = {};
+  Object.keys(PORTRAIT_PCT).forEach(cat => {
+    const orient = distributeOrient(total, Math.round(total * PORTRAIT_PCT[cat]));
+    byCat[cat] = orient.map((isP, i) => {
+      const [w, h] = isP ? PORTRAIT : LANDSCAPE;
+      return { src: `images/${cat}/${String(i + 1).padStart(2, "0")}.jpg`, type: "photo", cat, w, h };
+    });
+  });
+  // Main order: round-robin across categories so it mixes both category AND orientation.
+  // (Photography filters by cat, so each tab still sees its evenly-interleaved order.)
+  const cats = Object.keys(byCat);
+  const photos = [];
+  for (let i = 0; i < total; i++) cats.forEach(c => { if (byCat[c][i]) photos.push(byCat[c][i]); });
+
+  // design cards (open Behance in new tab) — same tidy 3:2 / 2:3 mix
+  const designs = [];
+  for (let i = 0; i < 12; i++) {
+    const [w, h] = i % 2 === 0 ? LANDSCAPE : PORTRAIT;
+    const n = String(i + 1).padStart(2, "0");
+    designs.push({ src: `images/design/${n}.jpg`, type: "design", href: `https://www.behance.net/gallery/000/${n}`, w, h });
+  }
+  // interleave design cards through the photo run so Main looks mixed, not clumped
+  const mixed = [];
+  let di = 0;
+  photos.forEach((p, i) => {
+    mixed.push(p);
+    if (i % 7 === 3 && di < designs.length) mixed.push(designs[di++]);
+  });
+  while (di < designs.length) mixed.push(designs[di++]);
+  return mixed;
+}
+const gallery = buildGallery();
+
+const projects = [
+  { tab: "ai",      title: "프로젝트 제목 1", date: "기간", designer: "디자이너 이름",
+    hero: { w: 1600, h: 720 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
+    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
+  { tab: "ai",      title: "프로젝트 제목 2", date: "기간", designer: "디자이너 이름",
+    hero: { w: 1600, h: 900 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
+    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
+  { tab: "graphic", title: "프로젝트 제목 1", date: "기간", designer: "디자이너 이름",
+    hero: { w: 1600, h: 800 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
+    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
+  { tab: "graphic", title: "프로젝트 제목 2", date: "기간", designer: "디자이너 이름",
+    hero: { w: 1600, h: 640 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
+    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
+];
+
+const BIO = "사진과 디자인으로 순간을 기록합니다 — atoman";
+
+class Component extends DCLogic {
+  state = {
+    screen: 'main', photoTab: 'model', designTab: 'ai',
+    bp: 'desktop', menuOpen: false, scrolled: false,
+    mainCount: 12, photoCount: 12,
+    lbOpen: false, lbList: [], lbIndex: 0,
+  };
+
+  setSentinel = (node) => {
+    this._sentinel = node;
+    if (this.io) { this.io.disconnect(); if (node) this.io.observe(node); }
+  };
+
+  componentDidMount() {
+    this.mqM = window.matchMedia('(max-width: 640px)');
+    this.mqT = window.matchMedia('(min-width: 641px) and (max-width: 1024px)');
+    this.recalcBp = () => {
+      const bp = this.mqM.matches ? 'mobile' : this.mqT.matches ? 'tablet' : 'desktop';
+      this.setState(s => s.bp === bp ? null : { bp, menuOpen: false });
+    };
+    this.mqM.addEventListener('change', this.recalcBp);
+    this.mqT.addEventListener('change', this.recalcBp);
+    this.recalcBp();
+
+    this.onScroll = () => {
+      const sc = (window.scrollY || document.documentElement.scrollTop || 0) > 0;
+      this.setState(s => s.scrolled === sc ? null : { scrolled: sc });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+
+    this.onKey = (e) => {
+      if (!this.state.lbOpen) return;
+      if (e.key === 'Escape') this.closeLightbox();
+      else if (e.key === 'ArrowLeft') this.lbPrev();
+      else if (e.key === 'ArrowRight') this.lbNext();
+    };
+    window.addEventListener('keydown', this.onKey);
+
+    // Observer only nudges maybeFill on scroll; the real decision measures the
+    // sentinel's live position, so it works identically for Main and every
+    // Photography category regardless of observer re-attach timing.
+    this.io = new IntersectionObserver(() => this.maybeFill(), { rootMargin: '400px 0px' });
+    if (this._sentinel) this.io.observe(this._sentinel);
+  }
+
+  // Load the active gallery's next batch if the sentinel is on/near screen.
+  // Bumps +12 per call; componentDidUpdate re-invokes after render so batches
+  // chain until the sentinel is pushed out of view (fixes mid-scroll stall,
+  // and works for whichever category's gallery is currently mounted).
+  maybeFill() {
+    const s = this.state;
+    if (s.screen !== 'main' && s.screen !== 'photography') return;
+    const key = s.screen === 'main' ? 'mainCount' : 'photoCount';
+    if (s[key] >= (this.currentSourceLen || 0)) return;
+    const node = this._sentinel;
+    if (!node) return;
+    const rect = node.getBoundingClientRect();
+    if (rect.top <= (window.innerHeight || 0) + 400) {
+      this.setState(state => ({ [key]: state[key] + 12 }));
+    }
+  }
+
+  componentDidUpdate() {
+    // Re-check after every render: chains batches while the sentinel stays near
+    // the viewport, and re-arms cleanly after a tab switch remounts the gallery.
+    this.maybeFill();
+  }
+
+  componentWillUnmount() {
+    this.mqM && this.mqM.removeEventListener('change', this.recalcBp);
+    this.mqT && this.mqT.removeEventListener('change', this.recalcBp);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('keydown', this.onKey);
+    this.io && this.io.disconnect();
+    document.body.style.overflow = '';
+  }
+
+  scrollTop() { window.scrollTo(0, 0); if (document.documentElement) document.documentElement.scrollTop = 0; if (document.body) document.body.scrollTop = 0; }
+  // Scroll always resets on navigation; Main's counter PERSISTS (only Photography's resets).
+  go(screen) { this.scrollTop(); this.setState({ screen, menuOpen: false, photoCount: 12, scrolled: false }); }
+  setPhotoTab(cat) { this.scrollTop(); this.setState({ photoTab: cat, photoCount: 12, scrolled: false }); }
+  setDesignTab(tab) { this.scrollTop(); this.setState({ designTab: tab, scrolled: false }); }
+  toggleMenu() { this.setState(s => ({ menuOpen: !s.menuOpen })); }
+
+  openLightbox(list, idx) { document.body.style.overflow = 'hidden'; this.setState({ lbOpen: true, lbList: list, lbIndex: idx }); }
+  closeLightbox() { document.body.style.overflow = ''; this.setState({ lbOpen: false }); }
+  lbNext() { this.setState(s => ({ lbIndex: (s.lbIndex + 1) % s.lbList.length })); }
+  lbPrev() { this.setState(s => ({ lbIndex: (s.lbIndex - 1 + s.lbList.length) % s.lbList.length })); }
+  openBehance(href) { window.open(href || 'https://www.behance.net', '_blank'); }
+
+  // Masonry packing: keep array order (so the interleaved orientation shows), place each
+  // card in the shortest column — but when heights are near-equal, prefer a column whose
+  // last card has a DIFFERENT orientation, so portraits/landscapes don't stack per-column.
+  packMasonry(cards, n) {
+    const cols = Array.from({ length: n }, () => ({ cards: [], h: 0, last: null }));
+    cards.forEach(c => {
+      const o = c.h > c.w ? 'p' : 'l';
+      let best = 0, bestScore = Infinity;
+      for (let i = 0; i < n; i++) {
+        // 0.35 ≈ half a card-height unit: only overrides height when columns are near-tied
+        const score = cols[i].h + (cols[i].last === o ? 0.35 : 0);
+        if (score < bestScore) { bestScore = score; best = i; }
+      }
+      cols[best].cards.push(c);
+      cols[best].h += c.h / c.w;
+      cols[best].last = o;
+    });
+    return cols;
+  }
+
+  renderVals() {
+    const s = this.state;
+    const bp = s.bp;
+    const isMobile = bp === 'mobile';
+    const columns = bp === 'mobile' ? 2 : bp === 'tablet' ? 3 : 4;
+    const sidePad = bp === 'mobile' ? 12 : bp === 'tablet' ? 18 : 24;
+    const gutter = 16;
+    const navGap = bp === 'mobile' ? 16 : bp === 'tablet' ? 22 : 30;
+    const subGap = bp === 'mobile' ? 14 : bp === 'tablet' ? 20 : 26;
+    const navFont = bp === 'desktop' ? 17 : 16;
+    const subFont = bp === 'mobile' ? 14 : bp === 'tablet' ? 15 : 16;
+    const titleSize = bp === 'mobile' ? 26 : bp === 'tablet' ? 32 : 40;
+    const projGap = bp === 'mobile' ? 72 : bp === 'tablet' ? 92 : 112;
+
+    const nav = [['main','Main'],['design','Design'],['photography','Photography'],['contact','Contact']];
+    const navItems = nav.map(([key, label]) => ({
+      label, onClick: () => this.go(key),
+      weight: s.screen === key ? 700 : 500,
+      border: s.screen === key ? '2px solid #000' : '2px solid transparent',
+    }));
+
+    const showSubtabs = s.screen === 'photography' || s.screen === 'design';
+    let subtabItems = [];
+    if (s.screen === 'photography') {
+      const tabs = [['model','Model'],['snap','Snap'],['street','Candid Street'],['landscape','Landscape']];
+      subtabItems = tabs.map(([key, label]) => ({
+        label, onClick: () => this.setPhotoTab(key),
+        weight: s.photoTab === key ? 700 : 500,
+        border: s.photoTab === key ? '2px solid #000' : '2px solid transparent',
+      }));
+    } else if (s.screen === 'design') {
+      const tabs = [['ai','AI Creative'],['graphic','Graphic & Branding']];
+      subtabItems = tabs.map(([key, label]) => ({
+        label, onClick: () => this.setDesignTab(key),
+        weight: s.designTab === key ? 700 : 500,
+        border: s.designTab === key ? '2px solid #000' : '2px solid transparent',
+      }));
+    }
+
+    let source = [];
+    if (s.screen === 'main') source = gallery;
+    else if (s.screen === 'photography') source = gallery.filter(g => g.type === 'photo' && g.cat === s.photoTab);
+    this.currentSourceLen = source.length;
+
+    const count = s.screen === 'main' ? s.mainCount : s.photoCount;
+    const visible = source.slice(0, count);
+    const photoList = visible.filter(g => g.type === 'photo');
+    let pIdx = -1;
+    const cards = visible.map(g => {
+      if (g.type === 'photo') {
+        pIdx++; const idx = pIdx;
+        return { ratio: g.w + '/' + g.h, w: g.w, h: g.h, cls: 'gallery-card', isDesign: false,
+                 onClick: () => this.openLightbox(photoList, idx) };
+      }
+      return { ratio: g.w + '/' + g.h, w: g.w, h: g.h, cls: 'design-card', isDesign: true,
+               onClick: () => this.openBehance(g.href) };
+    });
+    const showGallery = s.screen === 'main' || s.screen === 'photography';
+    const galleryCols = showGallery ? this.packMasonry(cards, columns) : [];
+
+    const designProjects = projects.filter(p => p.tab === s.designTab).map(p => ({
+      ...p, heroRatio: p.hero.w + '/' + p.hero.h,
+    }));
+
+    const gCols = isMobile ? '1fr' : 'repeat(4, 1fr)';
+    const titleCol = isMobile ? 'auto' : '1 / 3';
+    const dateCol = isMobile ? 'auto' : '3 / 4';
+    const designerCol = isMobile ? 'auto' : '4 / 5';
+    const credCol = isMobile ? 'auto' : '1 / 3';
+    const longCol = isMobile ? 'auto' : '3 / 5';
+    const metaDir = isMobile ? 'column' : 'row';
+    const metaAlign = isMobile ? 'flex-start' : 'flex-end';
+    const contactPadRight = isMobile ? 0 : bp === 'tablet' ? 40 : 80;
+
+    const cur = s.lbList[s.lbIndex];
+    const ratio = cur ? cur.w / cur.h : 1;
+    const lbWidth = 'min(92vw, calc(88vh * ' + ratio + '))';
+    const lbRatio = cur ? cur.w + '/' + cur.h : '1/1';
+
+    return {
+      isMobile, sidePad, gutter, navGap, subGap, navFont, subFont, titleSize, projGap,
+      headerBorder: s.scrolled ? '1px solid #000' : '1px solid transparent',
+      showNavRow: !isMobile, mobileMenuOpen: isMobile && s.menuOpen,
+      goMain: () => this.go('main'),
+      toggleMenu: () => this.toggleMenu(),
+      navItems, showSubtabs, subtabItems,
+      showGallery, galleryCols, setSentinel: this.setSentinel,
+      isDesign: s.screen === 'design', designProjects, gCols, titleCol, dateCol, designerCol, credCol, longCol, metaDir, metaAlign, contactPadRight,
+      isContact: s.screen === 'contact', bio: BIO,
+      lbOpen: s.lbOpen, lbWidth, lbRatio,
+      overlayClick: (e) => { if (e.target === e.currentTarget) this.closeLightbox(); },
+      closeLightbox: () => this.closeLightbox(),
+      lbPrev: () => this.lbPrev(), lbNext: () => this.lbNext(),
+    };
+  }
+}
+</script>
+</body>
+</html>
