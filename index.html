@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./gallery.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -198,75 +199,11 @@
 </sc-if>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
-// ===== DATA (edit these arrays; render iterates them) =====
-// Placeholder gallery generated as {src, type, cat, w, h(, href)} — swap `src` for real images later.
-// The renderer computes aspect-ratio from each item's ACTUAL w/h, so real photos of any
-// ratio (3:2, 2:3, square, panorama) will render correctly with no cropping. No hard-coded
-// ratios in the renderer. Placeholders use a 3:2 camera: portrait 1000x1500, landscape 1500x1000.
-const PORTRAIT = [1000, 1500];   // 2:3
-const LANDSCAPE = [1500, 1000];  // 3:2
-// portrait share per category (out of 20)
-const PORTRAIT_PCT = { model: 0.7, snap: 0.5, street: 0.5, landscape: 0.2 };
-// Evenly spread `pCount` portraits across `total` slots (Bresenham) so orientation
-// interleaves instead of clumping — keeps the exact ratio, minimizes same-orientation runs.
-function distributeOrient(total, pCount) {
-  const out = []; let acc = 0;
-  for (let i = 0; i < total; i++) {
-    acc += pCount;
-    if (acc >= total) { acc -= total; out.push(true); } else out.push(false);
-  }
-  return out; // true = portrait
-}
-function buildGallery() {
-  const total = 40;
-  // per-category items, orientation evenly interleaved within the category
-  const byCat = {};
-  Object.keys(PORTRAIT_PCT).forEach(cat => {
-    const orient = distributeOrient(total, Math.round(total * PORTRAIT_PCT[cat]));
-    byCat[cat] = orient.map((isP, i) => {
-      const [w, h] = isP ? PORTRAIT : LANDSCAPE;
-      return { src: `images/${cat}/${String(i + 1).padStart(2, "0")}.jpg`, type: "photo", cat, w, h };
-    });
-  });
-  // Main order: round-robin across categories so it mixes both category AND orientation.
-  // (Photography filters by cat, so each tab still sees its evenly-interleaved order.)
-  const cats = Object.keys(byCat);
-  const photos = [];
-  for (let i = 0; i < total; i++) cats.forEach(c => { if (byCat[c][i]) photos.push(byCat[c][i]); });
-
-  // design cards (open Behance in new tab) — same tidy 3:2 / 2:3 mix
-  const designs = [];
-  for (let i = 0; i < 12; i++) {
-    const [w, h] = i % 2 === 0 ? LANDSCAPE : PORTRAIT;
-    const n = String(i + 1).padStart(2, "0");
-    designs.push({ src: `images/design/${n}.jpg`, type: "design", href: `https://www.behance.net/gallery/000/${n}`, w, h });
-  }
-  // interleave design cards through the photo run so Main looks mixed, not clumped
-  const mixed = [];
-  let di = 0;
-  photos.forEach((p, i) => {
-    mixed.push(p);
-    if (i % 7 === 3 && di < designs.length) mixed.push(designs[di++]);
-  });
-  while (di < designs.length) mixed.push(designs[di++]);
-  return mixed;
-}
-const gallery = buildGallery();
-
-const projects = [
-  { tab: "ai",      title: "프로젝트 제목 1", date: "기간", designer: "디자이너 이름",
-    hero: { w: 1600, h: 720 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
-    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
-  { tab: "ai",      title: "프로젝트 제목 2", date: "기간", designer: "디자이너 이름",
-    hero: { w: 1600, h: 900 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
-    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
-  { tab: "graphic", title: "프로젝트 제목 1", date: "기간", designer: "디자이너 이름",
-    hero: { w: 1600, h: 800 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
-    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
-  { tab: "graphic", title: "프로젝트 제목 2", date: "기간", designer: "디자이너 이름",
-    hero: { w: 1600, h: 640 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
-    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
-];
+// ===== DATA =====
+// 실제 데이터는 gallery.js 파일에 있음. 여기선 그걸 읽어오기만 함.
+// 사진 추가/수정은 gallery.js 에서만 하면 됨. (이 파일은 손댈 필요 없음)
+const gallery = (window.GALLERY || []);
+const projects = (window.PROJECTS || []);
 
 const BIO = "사진과 디자인으로 순간을 기록합니다 — atoman";
 
