@@ -1,57 +1,78 @@
-// ============================================================
-//  atoman 갤러리 데이터 — 사진/디자인/프로젝트 목록
-// ============================================================
-//  사진 추가하는 법:
-//    1) GitHub의 images/<카테고리>/ 폴더에 사진 파일을 올린다
-//    2) 아래 GALLERY 배열에 한 줄 추가한다:
-//         { src: "images/model/02.avif", type: "photo", cat: "model", w: 1500, h: 1000 },
-//    3) Commit → Vercel이 1분 안에 자동 배포
-//
-//  각 항목 설명:
-//    src  = 사진 파일 경로 (images/카테고리/파일명.avif)
-//    type = "photo"  → 클릭 시 라이트박스 팝업
-//           "design" → 클릭 시 Behance 새 탭 (이때 href 도 같이 적기)
-//    cat  = Photography 서브탭 분류: "model" / "snap" / "street" / "landscape"
-//           (design 타입은 cat 없어도 됨)
-//    w, h = 사진의 가로/세로 픽셀. 비율 계산용. (예: 가로사진 1500x1000, 세로사진 1000x1500)
-//           → 정확한 원본 비율만 지키면 됨. 실제 픽셀수 안 맞아도 비율만 맞으면 OK.
-//    href = design 타입일 때만. 클릭하면 열릴 Behance 주소.
-// ============================================================
+// ===================================================================
+// atoman 갤러리 데이터
+// 사진 추가 시: 아래 GALLERY 배열에 한 줄씩 추가
+//   { src: "images/<카테고리>/<파일명>.avif", type: "photo", cat: "<카테고리>", w: <가로px>, h: <세로px> }
+// 카테고리(cat): model / snap / street / landscape
+// 디자인 카드(Behance 이동): { src: "...", type: "design", href: "https://behance.net/...", w: .., h: .. }
+// ===================================================================
 
 const GALLERY = [
-  // ↓↓↓ 여기부터 사진 목록. 한 줄이 사진 한 장. ↓↓↓
-
-  { src: "images/model/test.avif", type: "photo", cat: "model", w: 2000, h: 1333 },
-
-  // 예시) 사진 더 넣을 때 이렇게 아래에 계속 추가:
-  // { src: "images/model/02.avif",   type: "photo",  cat: "model",     w: 1000, h: 1500 },
-  // { src: "images/snap/01.avif",    type: "photo",  cat: "snap",      w: 1500, h: 1000 },
-  // { src: "images/street/01.avif",  type: "photo",  cat: "street",    w: 1500, h: 1000 },
-  // { src: "images/landscape/01.avif", type: "photo", cat: "landscape", w: 1500, h: 1000 },
-  // 디자인 카드(클릭 시 Behance로 이동)는 이렇게:
-  // { src: "images/design/01.avif",  type: "design", href: "https://www.behance.net/gallery/000/01", w: 1500, h: 1000 },
-
-  // ↑↑↑ 여기까지 사진 목록 ↑↑↑
+  { src: "images/street/0Q9A0384.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A0390.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A0515.avif", type: "photo", cat: "street", w: 1335, h: 2000 },
+  { src: "images/street/0Q9A0564.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A0601.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A0628.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A0736.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A0761.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A0765.avif", type: "photo", cat: "street", w: 1296, h: 2000 },
+  { src: "images/street/0Q9A0780.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A0808.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A0857.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A0880.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A0934.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A0952.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A2082.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A2267.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A2413.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A2671.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A3031.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A3048.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A4714.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A5051.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A5108.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A5108b.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A5439.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A5765.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A6018.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A6327.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A6362.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A6552.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A6625.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A6635.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A6700.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A6744.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A6785.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A6949.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A7211.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A7315.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A7330.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A7382.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A7466.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A7532.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A7543.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A7548.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A7570.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A7863.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A8169.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A8552.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A8742.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A8757.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A8888.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A9514.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A9518.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A9532.avif", type: "photo", cat: "street", w: 2000, h: 1333 },
+  { src: "images/street/0Q9A9563.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/0Q9A9614.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
+  { src: "images/street/DSC03459.avif", type: "photo", cat: "street", w: 1487, h: 2000 },
+  { src: "images/street/DSC04044.avif", type: "photo", cat: "street", w: 1233, h: 2000 },
 ];
 
-// ---- Design 탭 프로젝트 (AI Creative / Graphic & Branding) ----
-//  프로젝트 추가는 아래 배열에 한 덩어리 복붙 후 내용만 교체.
-//  tab: "ai" = AI Creative 탭,  "graphic" = Graphic & Branding 탭
 const PROJECTS = [
-  { tab: "ai",      title: "프로젝트 제목 1", date: "기간", designer: "디자이너 이름",
-    hero: { w: 1600, h: 720 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
-    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
-  { tab: "ai",      title: "프로젝트 제목 2", date: "기간", designer: "디자이너 이름",
-    hero: { w: 1600, h: 900 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
-    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
-  { tab: "graphic", title: "프로젝트 제목 1", date: "기간", designer: "디자이너 이름",
-    hero: { w: 1600, h: 800 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
-    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
-  { tab: "graphic", title: "프로젝트 제목 2", date: "기간", designer: "디자이너 이름",
-    hero: { w: 1600, h: 640 }, credits: ["크레딧 1", "크레딧 2", "크레딧 3"],
-    textKo: "국문 설명 자리", textEn: "영문 설명 자리" },
+  // Design 탭 프로젝트들. tab: "ai" 또는 "graphic"
+  // 예: { tab: "ai", title: "프로젝트 제목", period: "2026", designer: "SHIN YOUNGJIN",
+  //       credit: "크레딧", hero: "images/design/hero.avif", descKo: "국문 설명", descEn: "English description" }
 ];
 
-// 렌더러가 읽어가는 부분 — 손대지 말 것
 window.GALLERY = GALLERY;
 window.PROJECTS = PROJECTS;
