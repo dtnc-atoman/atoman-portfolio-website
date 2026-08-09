@@ -66,6 +66,9 @@ const GALLERY = [
   { src: "images/street/0Q9A9614.avif", type: "photo", cat: "street", w: 1333, h: 2000 },
   { src: "images/street/DSC03459.avif", type: "photo", cat: "street", w: 1487, h: 2000 },
   { src: "images/street/DSC04044.avif", type: "photo", cat: "street", w: 1233, h: 2000 },
+  { src: "images/snap/260809_snap.avif", type: "photo", cat: "snap", w: 1125, h: 2000 },
+  { src: "images/snap/260809_snap-2.avif", type: "photo", cat: "snap", w: 1333, h: 2000 },
+  { src: "images/snap/260809_snap-3.avif", type: "photo", cat: "snap", w: 1429, h: 2000 },
 ];
 
 const PROJECTS = [
